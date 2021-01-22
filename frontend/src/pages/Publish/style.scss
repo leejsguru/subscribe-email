@@ -1,0 +1,15 @@
+.publish-page {
+  padding: 3rem;
+  height: calc(100vh - 64px);
+
+  &-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+  }
+
+  &-history {
+    padding: 0 2rem;
+  }
+}

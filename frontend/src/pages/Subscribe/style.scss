@@ -1,0 +1,13 @@
+.subscribe-page {
+  padding: 3rem;
+  height: calc(100vh - 64px);
+
+  &-container {
+    max-width: 500px;
+    padding: 3rem;
+    margin: 3rem auto 0;
+    box-shadow: 4px 0px 14px #37215714;
+    border-radius: 8px;
+    border: 1px solid #dddddd;
+  }
+}
