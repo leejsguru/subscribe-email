@@ -1,15 +1,92 @@
 .publish-page {
   padding: 3rem;
   height: calc(100vh - 64px);
+  overflow: auto;
+
+  @media (max-width: 575.98px) {
+    padding: 1rem;
+  }
 
   &-container {
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 400px;
+    grid-gap: 1rem;
+
+    @media (max-width: 767.98px) {
+      display: block;
+    }
+  }
+
+  &-form {
+    padding: 2rem;
+    box-shadow: 4px 0px 14px #37215714;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 1rem;
+
+      .broadcast-btn {
+        width: 100%;
+      }
+    }
   }
 
   &-history {
-    padding: 0 2rem;
+    padding: 2rem 0;
+    box-shadow: 4px 0px 14px #37215714;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    width: 100%;
+
+    h5 {
+      text-align: center;
+    }
+
+    &-list {
+      height: 600px;
+      overflow: auto;
+      padding: 0 2rem;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .history-list-item {
+    border-bottom: 1px solid #dddddd;
+    padding: 1rem;
+
+    &-topic {
+      margin: 0 0 1rem;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    &-message {
+      margin: 0 0 1rem;
+      font-size: 14px;
+      font-weight: normal;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      /* autoprefixer: off */
+    }
+
+    &-emaillist {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: #dddddd;
+    }
   }
 }

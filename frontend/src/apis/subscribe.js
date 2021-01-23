@@ -39,3 +39,12 @@ export const broadcastMessage = (topic, message, callback) => {
       callback(error, null);
     });
 };
+
+export const getBroadcastHistory = (callback) => {
+  api
+    .get("api/broadcast")
+    .then((res) => callback(null, res.data.messages))
+    .catch((error) => {
+      callback(error, null);
+    });
+};
