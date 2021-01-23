@@ -46,4 +46,17 @@ module.exports = {
         .json({ msg: "Internal server error" });
     }
   },
+  listAll: async (req, res) => {
+    try {
+      const result = await Topic.findAll();
+      return res.status(HttpCodes.OK).json({
+        topics: result,
+      });
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(HttpCodes.INTERNAL_SERVER_ERROR)
+        .json({ msg: "Internal server error" });
+    }
+  },
 };

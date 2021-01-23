@@ -14,5 +14,6 @@ router.delete('/api/user/:id', UserController.destroy);
 
 // subscribe
 router.post('/api/subscribe', TopicController.create);
+router.get('/api/topic', TopicController.listAll)
 
 module.exports = router;

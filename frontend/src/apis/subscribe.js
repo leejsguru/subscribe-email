@@ -15,3 +15,12 @@ export const subscribeEmail = (email, topic, callback) => {
       callback(error, null);
     });
 };
+
+export const getTopics = (callback) => {
+  api
+    .get("api/topic")
+    .then((res) => callback(null, res.data.topics))
+    .catch((error) => {
+      callback(error, null);
+    });
+};

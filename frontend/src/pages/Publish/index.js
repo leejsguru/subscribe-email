@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Form, Input, Select, Button } from "antd";
+import { Form, Input, Select, Button, notification } from "antd";
+
+import { getTopics } from "../../apis/subscribe";
 
 import "./style.scss";
 
@@ -36,7 +38,24 @@ const Topics = [
 ];
 
 const PublishPage = () => {
+  const [topics, setTopics] = useState([]);
+
   const onFinish = (values) => {};
+
+  useEffect(() => {
+    getTopics((error, res) => {
+      getTopics((error, res) => {
+        if (error) {
+          notification.error({
+            message: "Error",
+            description: "There was an error while loading topics.",
+          });
+        } else {
+          setTopics(res);
+        }
+      });
+    });
+  }, []);
 
   return (
     <div className="publish-page">
@@ -51,9 +70,9 @@ const PublishPage = () => {
           >
             <Form.Item name="topic" label="Topic" rules={[{ required: true }]}>
               <Select>
-                {Topics.map((item) => (
-                  <Select.Option key={item.value} value={item.value}>
-                    {item.label}
+                {topics.map((item) => (
+                  <Select.Option key={item.id} value={item.id}>
+                    {item.topic}
                   </Select.Option>
                 ))}
               </Select>

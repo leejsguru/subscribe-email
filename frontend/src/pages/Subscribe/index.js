@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Form, Input, Button, notification } from "antd";
 import { subscribeEmail } from "../../apis/subscribe";
@@ -27,6 +27,7 @@ const validateMessages = {
 
 const SubscribePage = () => {
   const [loading, setLoading] = useState(false);
+  const formControl = useRef(null);
 
   const onFinish = (values) => {
     setLoading(true);
@@ -43,6 +44,9 @@ const SubscribePage = () => {
           message: "Success",
           description: "Email has subscribed to the topic successfully.",
         });
+        if (formControl) {
+          formControl.current.setFieldsValue({ email: "", topic: "" });
+        }
       }
     });
   };
@@ -53,6 +57,7 @@ const SubscribePage = () => {
         <div className="subscribe-page-form">
           <Form
             {...layout}
+            ref={formControl}
             initialValues={{}}
             className="subscribe-form"
             onFinish={onFinish}
