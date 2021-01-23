@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Form, Input, Select, Button, notification } from "antd";
 
 import { getTopics } from "../../apis/subscribe";
+import { broadcastMessage } from "../../apis/subscribe";
 
 import "./style.scss";
 
@@ -39,21 +40,40 @@ const Topics = [
 
 const PublishPage = () => {
   const [topics, setTopics] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const onFinish = (values) => {};
+  const onFinish = (values) => {
+    setLoading(true);
+    broadcastMessage(values.topic, values.message, (error, res) => {
+      if (error) {
+        const { msg } = error.response.data;
+
+        notification.error({
+          message: "Error",
+          description: msg || "There was an error while broadcasting topic.",
+        });
+      } else {
+        notification.info({
+          message: "Success",
+          description: "New topic has been successfully broadcasted.",
+        });
+      }
+      setLoading(false);
+    });
+  };
 
   useEffect(() => {
+    setLoading(true);
     getTopics((error, res) => {
-      getTopics((error, res) => {
-        if (error) {
-          notification.error({
-            message: "Error",
-            description: "There was an error while loading topics.",
-          });
-        } else {
-          setTopics(res);
-        }
-      });
+      if (error) {
+        notification.error({
+          message: "Error",
+          description: "There was an error while loading topics.",
+        });
+      } else {
+        setTopics(res);
+      }
+      setLoading(false);
     });
   }, []);
 
@@ -85,7 +105,7 @@ const PublishPage = () => {
               <Input.TextArea rows={10} />
             </Form.Item>
             <Form.Item {...actionLayout}>
-              <Button type="primary" htmlType="submit">
+              <Button loading={loading} type="primary" htmlType="submit">
                 Broadcast
               </Button>
             </Form.Item>

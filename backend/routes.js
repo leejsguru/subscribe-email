@@ -1,6 +1,7 @@
 const express = require('express');
 const UserController = require('./app/controllers/UserController');
 const TopicController = require('./app/controllers/TopicController');
+const BroadcastController = require('./app/controllers/BroadcastController');
 
 const router = new express.Router();
 
@@ -15,5 +16,6 @@ router.delete('/api/user/:id', UserController.destroy);
 // subscribe
 router.post('/api/subscribe', TopicController.create);
 router.get('/api/topic', TopicController.listAll)
+router.post('/api/broadcast', BroadcastController.broadcast);
 
 module.exports = router;

@@ -24,3 +24,18 @@ export const getTopics = (callback) => {
       callback(error, null);
     });
 };
+
+export const broadcastMessage = (topic, message, callback) => {
+  api
+    .post(
+      "api/broadcast",
+      qs.stringify({
+        topic,
+        message,
+      })
+    )
+    .then((res) => callback(null, res))
+    .catch((error) => {
+      callback(error, null);
+    });
+};
