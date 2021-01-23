@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, notification } from "antd";
+import { subscribeEmail } from "../../apis/subscribe";
 
 import "./style.scss";
 
@@ -25,7 +26,26 @@ const validateMessages = {
 };
 
 const SubscribePage = () => {
-  const onFinish = (values) => {};
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = (values) => {
+    setLoading(true);
+    subscribeEmail(values.email, values.topic, (err, res) => {
+      setLoading(false);
+      if (err) {
+        const { msg } = err.response.data;
+        notification.error({
+          message: "Error",
+          description: msg || "Email has not subscribed to the topic.",
+        });
+      } else {
+        notification.info({
+          message: "Success",
+          description: "Email has subscribed to the topic successfully.",
+        });
+      }
+    });
+  };
 
   return (
     <div className="subscribe-page">
@@ -49,7 +69,7 @@ const SubscribePage = () => {
               <Input />
             </Form.Item>
             <Form.Item {...actionLayout}>
-              <Button type="primary" htmlType="submit">
+              <Button loading={loading} type="primary" htmlType="submit">
                 Subscribe
               </Button>
             </Form.Item>
