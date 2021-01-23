@@ -8,7 +8,7 @@ module.exports = {
     try {
       // find or create
       const [topicInstance, created] = await Topic.findOrCreate({
-        where: { topic },
+        where: { topic: topic.toLowerCase() },
       });
 
       let emailList = topicInstance.emailList
