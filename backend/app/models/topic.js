@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Topic.init({
     topic: DataTypes.STRING,
+    smallTopic: DataTypes.STRING,
     emailList: DataTypes.STRING,
     messageIds: DataTypes.STRING,
   }, {

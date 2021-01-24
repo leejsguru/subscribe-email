@@ -1,5 +1,6 @@
 const HttpCodes = require("http-codes");
 const { Topic, Broadcast, sequelize } = require("../models");
+const smtpService = require("../../services/smtp.service");
 
 module.exports = {
   broadcast: async (req, res) => {
@@ -31,6 +32,28 @@ module.exports = {
             },
             { where: { id: topic } }
           );
+
+          // broadcast
+          if (topicInstance.emailList) {
+            let mailOptions = {
+              from: process.env.SMTP_FROM_EMAIL,
+              to: JSON.parse(topicInstance.emailList).join(","),
+              subject: `Broadcast Topic`,
+              html: `
+              <div>
+                <h3>${topicInstance.topic}</h3>
+                <p>${message}</p>
+              </div>
+              `,
+            };
+            console.log("****** mailOPtions = ", mailOptions);
+            const success = await smtpService().sendMail(mailOptions);
+            if (!success) {
+              return res
+                .status(HttpCodes.INTERNAL_SERVER_ERROR)
+                .json({ msg: "Failed to send email." });
+            }
+          }
         }
 
         return res.status(HttpCodes.OK).json(record);
