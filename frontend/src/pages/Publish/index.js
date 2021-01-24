@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Form, Input, Select, Button, notification } from "antd";
+import moment from "moment";
 
 import { getTopics } from "../../apis/subscribe";
 import { broadcastMessage, getBroadcastHistory } from "../../apis/subscribe";
@@ -130,6 +131,9 @@ const PublishPage = () => {
                 <p className="history-list-item-emaillist">
                   {item.emailList ? item.emailList.join(", ") : ""}
                 </p>
+                <span className="history-list-item-date">
+                  {moment(item.createAt).format("MMM DD, YYYY")}
+                </span>
               </div>
             ))}
           </div>

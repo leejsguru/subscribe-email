@@ -63,6 +63,7 @@
   .history-list-item {
     border-bottom: 1px solid #dddddd;
     padding: 1rem;
+    cursor: pointer;
 
     &-topic {
       margin: 0 0 1rem;
@@ -89,8 +90,14 @@
       margin: 0;
     }
 
+    &-date {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #555555;
+    }
+
     &:hover {
-      background-color: #dddddd;
+      background-color: #eeeeee;
     }
   }
 }
