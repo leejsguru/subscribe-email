@@ -17,6 +17,10 @@
     @media (max-width: 767.98px) {
       display: block;
     }
+
+    @media (max-width: 575.98px) {
+      padding: 1rem;
+    }
   }
 
   &-form {
@@ -26,7 +30,7 @@
     border-radius: 4px;
 
     @media (max-width: 767.98px) {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
 
       .broadcast-btn {
         width: 100%;
