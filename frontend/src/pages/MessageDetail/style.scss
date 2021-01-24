@@ -1,0 +1,9 @@
+.message-detail-page {
+  height: calc(100vh - 64px);
+  overflow: auto;
+  padding: 5rem;
+
+  &-back {
+    margin-bottom: 2rem;
+  }
+}

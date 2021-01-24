@@ -7,6 +7,7 @@ import { INTERNAL_LINKS } from "./enum";
 import PublishPage from "./pages/Publish";
 import SubscribePage from "./pages/Subscribe";
 import NavBar from "./components/navbar";
+import MessageDetailPage from "./pages/MessageDetail";
 
 const App = () => {
   return (
@@ -16,6 +17,10 @@ const App = () => {
         <Route
           path={INTERNAL_LINKS.PUBLISH}
           render={(props) => <PublishPage {...props} />}
+        />
+        <Route
+          path={`${INTERNAL_LINKS.MESSAGE_DETAIL}/:id`}
+          render={(props) => <MessageDetailPage {...props} />}
         />
         <Route
           path={INTERNAL_LINKS.SUBSCRIBE}

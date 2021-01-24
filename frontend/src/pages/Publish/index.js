@@ -7,6 +7,7 @@ import { broadcastMessage, getBroadcastHistory } from "../../apis/subscribe";
 import BroadcastItem from "../../components/broadcast-item";
 import Drawer from "../../components/drawer";
 import MessageDetail from "../../components/message-detail";
+import { INTERNAL_LINKS } from "../../enum";
 
 import "./style.scss";
 
@@ -21,7 +22,7 @@ const validateMessages = {
   },
 };
 
-const PublishPage = () => {
+const PublishPage = ({ history }) => {
   const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(false);
   const [broadcastHistory, setBroadcastHistory] = useState([]);
@@ -58,6 +59,10 @@ const PublishPage = () => {
   const onItemClick = (item) => {
     setVisible(true);
     setMessage(item);
+  };
+
+  const onDetailView = (item) => {
+    history.push(`${INTERNAL_LINKS.MESSAGE_DETAIL}/${item.id}`);
   };
 
   useEffect(() => {
@@ -138,6 +143,7 @@ const PublishPage = () => {
                 key={item.id}
                 data={item}
                 onClick={() => onItemClick(item)}
+                onView={() => onDetailView(item)}
               />
             ))}
           </div>
