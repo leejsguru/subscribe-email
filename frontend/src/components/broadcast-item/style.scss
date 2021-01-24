@@ -10,15 +10,29 @@
   }
 
   &-message {
-    margin: 0 0 1rem;
+    margin: 0;
     font-size: 14px;
     font-weight: normal;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    /* autoprefixer: off */
+
+    &:not(.more) {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      /* autoprefixer: off */
+    }
+
+    &.more {
+      overflow: visible;
+    }
+  }
+
+  .message-more {
+    margin: 0 0 1rem;
+    display: inline-block;
+    cursor: pointer;
+    color: #1890ff;
   }
 
   &-emaillist {
