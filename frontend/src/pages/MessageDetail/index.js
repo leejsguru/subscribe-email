@@ -1,15 +1,41 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Button } from "antd";
+import React, { useState, useEffect } from "react";
+import { Button, notification } from "antd";
 
 import MessageDetail from "../../components/message-detail";
+import { getMessage } from "../../apis/subscribe";
 
 import "./style.scss";
 
-const MessageDetailPage = ({ history }) => {
+const MessageDetailPage = ({ history, match }) => {
+  const [message, setMessage] = useState({});
+  const [loading, setLoading] = useState(false);
+
   const onBack = () => {
     history.goBack();
   };
+
+  useEffect(() => {
+    const {
+      params: { id },
+    } = match;
+
+    if (id) {
+      setLoading(true);
+      getMessage(id, (error, data) => {
+        if (error) {
+          notification.error({
+            message: "Error",
+            description: "There was an error while loading message.",
+          });
+        } else {
+          setMessage({ ...data[0], emailList: JSON.parse(data[0].emailList) });
+        }
+        setLoading(false);
+      });
+    }
+
+    return () => {};
+  }, []);
 
   return (
     <div className="message-detail-page">
@@ -20,9 +46,7 @@ const MessageDetailPage = ({ history }) => {
       >
         Back
       </Button>
-      <MessageDetail
-        data={{ topic: "React", message: "Message", emailList: [] }}
-      />
+      {loading ? "loading ..." : <MessageDetail data={message} />}
     </div>
   );
 };

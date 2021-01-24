@@ -93,6 +93,8 @@ const PublishPage = ({ history }) => {
         setLoading(false);
       });
     });
+
+    return () => {};
   }, []);
 
   return (

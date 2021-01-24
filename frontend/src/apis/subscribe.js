@@ -48,3 +48,12 @@ export const getBroadcastHistory = (callback) => {
       callback(error, null);
     });
 };
+
+export const getMessage = (id, callback) => {
+  api
+    .get(`api/broadcast/${id}`)
+    .then((res) => callback(null, res.data.message))
+    .catch((error) => {
+      callback(error, null);
+    });
+};

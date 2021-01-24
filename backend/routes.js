@@ -18,5 +18,6 @@ router.post('/api/subscribe', TopicController.create);
 router.get('/api/topic', TopicController.listAll)
 router.post('/api/broadcast', BroadcastController.broadcast);
 router.get('/api/broadcast', BroadcastController.listAll);
+router.get('/api/broadcast/:id', BroadcastController.get);
 
 module.exports = router;

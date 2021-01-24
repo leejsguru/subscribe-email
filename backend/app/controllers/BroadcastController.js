@@ -25,7 +25,7 @@ module.exports = {
           let messageIds = topicInstance.messageIds
             ? JSON.parse(topicInstance.messageIds)
             : [];
-          
+
           await Topic.update(
             {
               messageIds: JSON.stringify([...messageIds, record.id]),
@@ -79,6 +79,25 @@ module.exports = {
       const result = await sequelize.query(query);
 
       return res.status(HttpCodes.OK).json({ messages: result[0] });
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(HttpCodes.INTERNAL_SERVER_ERROR)
+        .json({ msg: "Internal server error" });
+    }
+  },
+
+  get: async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      let query = `
+        SELECT broadcasts.id, message, topic, emailList FROM broadcasts JOIN topics ON broadcasts.topicId = topics.id WHERE broadcasts.id = ${id}
+      `;
+
+      const result = await sequelize.query(query);
+
+      return res.status(HttpCodes.OK).json({ message: result[0] });
     } catch (error) {
       console.log(error);
       return res
