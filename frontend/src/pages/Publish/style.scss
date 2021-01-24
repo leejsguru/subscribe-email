@@ -1,5 +1,4 @@
 .publish-page {
-  padding: 3rem;
   height: calc(100vh - 64px);
   overflow: auto;
 
@@ -10,6 +9,7 @@
   &-container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 3rem;
     display: grid;
     grid-template-columns: 1fr 400px;
     grid-gap: 1rem;
@@ -46,7 +46,7 @@
     }
 
     &-list {
-      height: 600px;
+      height: 550px;
       overflow: auto;
       padding: 0 2rem;
 
