@@ -1,8 +1,6 @@
-# Simple Crud
-A simple crud app with React Hooks (+Axios) consuming a simple Nodejs api server (+Sequelize Sqlite).
+# Pypestream: Email Subscription App
 
-## Screenshot
-![alt text](https://github.com/arturguitelar/simple-crud-react-nodejs/blob/master/simple-crud-app-screenshot-frontend.png)
+Let’s build a small email app that lets users subscribe to receive Broadcast emails  about specific Topics.
 
 ## frontend
 
@@ -30,6 +28,10 @@ Port: http://localhost:3000
 | express | [link](https://expressjs.com/) |
 | sequelize | [link](https://sequelize.org/) |
 | sqlite3 | [link](https://github.com/mapbox/node-sqlite3) |
+| dotenv | [link](https://www.npmjs.com/package/dotenv) |
+| http-codes | [link](https://www.npmjs.com/package/http-codes) |
+| moment | [link](https://www.npmjs.com/package/moment) |
+| nodemailer | [link](​https://nodemailer.com/about) |
 
 | dev-dependencies | links |
 | ------ | ----- |
@@ -50,16 +52,29 @@ The database.sqlite already contains some data.
 
 | verb | route |
 | ------ | ------ |
-| get | /api |
-| post | /api |
-| put | /api/:id |
-| delete | /api/:id |
+| get | /api/user |
+| post | /api/user |
+| put | /api/user/:id |
+| delete | /api/user/:id |
+| get | /api/topic |
+| post | /api/subscribe |
+| post | /api/broadcast |
+| get | /api/broadcast |
+| get | /api/broadcast/:id |
 
-### Tutorial referencies:
+### Project Requirements:
 
-[Build a CRUD App in React with Hooks - Tania Rascia](https://www.taniarascia.com/crud-app-in-react-with-hooks/) - eng.
+ ● It should be made available as a git repository (github, gitlab, bitbucket, etc).
+ ● It should have a README that discusses what you did, why you did it, etc.
+ ● It should build/run with minimal setup after cloning. 
+ ● The frontend should be written in React, preferably with hooks.  ○ The UI should give helpful feedback to the user ​(email already subscribed  to topic, fields are required/empty, topic does not exist, email failed to  send, etc). Can be a toast, message, etc.  
+ ● Please use the following technologies/packages: 
+   ○ express or some other nodejs based server (can use graphql, sockets, or  REST)
+   ○ nodemailer (​https://nodemailer.com/about/​)
+   ○ mailtrap.io (​https://mailtrap.io/​) (​Instructions below​)  
+   ○ sequelize ORM with sqlite file db  (​https://sequelize.org/master/manual/getting-started.html#installing​,  check option 2 for sqlite file)  
+      ■ We would prefer not to spin up a separate db instance for testing,  but if you are most familiar with another DB and would be most  productive, feel free to use it.   
+      ■ As a last resort, you can build the app with in-memory storage. 
 
-[Configurando o ORM Sequelize no NodeJS com ExpressJS - Rocketseat](https://blog.rocketseat.com.br/nodejs-express-sequelize/) - pt-br.
 
-[Post on my blog about this project.](https://arturkilldragon.wordpress.com/2019/08/25/crud-simples-com-react-consumindo-api-em-nodejs/) - pt-br
 
