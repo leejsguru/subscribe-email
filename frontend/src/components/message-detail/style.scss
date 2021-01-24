@@ -1,0 +1,29 @@
+.message-detail {
+  &-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &-date {
+    font-size: 14px;
+    margin-bottom: 3rem;
+    font-weight: 600;
+  }
+
+  &-message {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 3rem;
+  }
+
+  &-subscriber {
+    .header {
+      font-weight: 700;
+    }
+
+    h6:not(.header) {
+      font-size: 14px;
+    }
+  }
+}

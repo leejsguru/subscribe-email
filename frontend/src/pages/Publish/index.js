@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Form, Input, Select, Button, notification } from "antd";
-import moment from "moment";
 
 import { getTopics } from "../../apis/subscribe";
 import { broadcastMessage, getBroadcastHistory } from "../../apis/subscribe";
+import BroadcastItem from "../../components/broadcast-item";
+import Drawer from "../../components/drawer";
+import MessageDetail from "../../components/message-detail";
 
 import "./style.scss";
 
@@ -23,6 +25,8 @@ const PublishPage = () => {
   const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(false);
   const [broadcastHistory, setBroadcastHistory] = useState([]);
+  const [visible, setVisible] = useState(false);
+  const [message, setMessage] = useState({});
   const formControl = useRef(null);
 
   const onFinish = (values) => {
@@ -49,6 +53,11 @@ const PublishPage = () => {
       }
       setLoading(false);
     });
+  };
+
+  const onItemClick = (item) => {
+    setVisible(true);
+    setMessage(item);
   };
 
   useEffect(() => {
@@ -125,20 +134,23 @@ const PublishPage = () => {
           <h5>Broadcast History</h5>
           <div className="publish-page-history-list">
             {broadcastHistory.map((item) => (
-              <div key={item.id} className="history-list-item">
-                <h3 className="history-list-item-topic">{item.topic}</h3>
-                <p className="history-list-item-message">{item.message}</p>
-                <p className="history-list-item-emaillist">
-                  {item.emailList ? item.emailList.join(", ") : ""}
-                </p>
-                <span className="history-list-item-date">
-                  {moment(item.createAt).format("MMM DD, YYYY")}
-                </span>
-              </div>
+              <BroadcastItem
+                key={item.id}
+                data={item}
+                onClick={() => onItemClick(item)}
+              />
             ))}
           </div>
         </div>
       </div>
+      <Drawer
+        title="Broadcast"
+        width={500}
+        visible={visible}
+        onClose={() => setVisible(false)}
+      >
+        <MessageDetail data={message} />
+      </Drawer>
     </div>
   );
 };

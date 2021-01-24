@@ -1,0 +1,40 @@
+.broadcast-list-item {
+  border-bottom: 1px solid #dddddd;
+  padding: 1rem;
+  cursor: pointer;
+
+  &-topic {
+    margin: 0 0 1rem;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &-message {
+    margin: 0 0 1rem;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    /* autoprefixer: off */
+  }
+
+  &-emaillist {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  &-date {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #555555;
+  }
+
+  &:hover {
+    background-color: #eeeeee;
+  }
+}
