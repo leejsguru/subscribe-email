@@ -89,4 +89,31 @@ The database.sqlite already contains some data.
       &nbsp;&nbsp;&nbsp;&nbsp;■ As a last resort, you can build the app with in-memory storage. 
 
 
+### What I did here
+1. Subscribe page.
+<br />
+&nbsp;&nbsp;- Form validation
+<br />
+&nbsp;&nbsp;- Subscribe email to the topic
+<br />
+&nbsp;&nbsp;- After clicking on the subscribe button, the form is submitted and reset.
+<br />
+&nbsp;&nbsp;- If a topic does not exist in the database, it is created.
+<br />
+&nbsp;&nbsp;- If email was already subscribed to the topic, the error message is displayed.
+<br />
+&nbsp;&nbsp;- You can subscribe an email to different topics.
+<br />
+2. Publish page
+<br />
+&nbsp;&nbsp;- Load all topics.<br />
+&nbsp;&nbsp;- Form validation<br />
+&nbsp;&nbsp;- message is broadcasted to all the users who are registered to the topic.<br />
+&nbsp;&nbsp;- List the broadcast history<br />
+&nbsp;&nbsp;&nbsp;&nbsp;● If you click on topic title, then you go to broadcast detail page.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;● If you click on `more` or `less`, the broadcast message gets expanded so that you can see the full content.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;● If you click on the other part of item, the detail view drawer is showed on the right side.<br />
 
+3. Broadcast Detail page
+<br />
+&nbsp;&nbsp;- Load individual broadcast message including topic, created date and subscribers.
