@@ -91,7 +91,6 @@ The database.sqlite already contains some data.
 
 ### What I did here
 1. Subscribe page.
-<br />
 &nbsp;&nbsp;- Form validation
 <br />
 &nbsp;&nbsp;- Subscribe email to the topic
@@ -104,6 +103,7 @@ The database.sqlite already contains some data.
 <br />
 &nbsp;&nbsp;- You can subscribe an email to different topics.
 <br />
+<br />
 2. Publish page
 <br />
 &nbsp;&nbsp;- Load all topics.<br />
@@ -113,7 +113,7 @@ The database.sqlite already contains some data.
 &nbsp;&nbsp;&nbsp;&nbsp;● If you click on topic title, then you go to broadcast detail page.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;● If you click on `more` or `less`, the broadcast message gets expanded so that you can see the full content.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;● If you click on the other part of item, the detail view drawer is showed on the right side.<br />
-
+<br />
 3. Broadcast Detail page
 <br />
 &nbsp;&nbsp;- Load individual broadcast message including topic, created date and subscribers.
