@@ -72,16 +72,21 @@ The database.sqlite already contains some data.
  <br>
  ● The frontend should be written in React, preferably with hooks.  
  <br>
- ○ The UI should give helpful feedback to the user ​(email already subscribed  to topic, fields are required/empty, topic does not exist, email failed to  send, etc). Can be a toast, message, etc.  
+ &nbsp;&nbsp;○ The UI should give helpful feedback to the user ​(email already subscribed  to topic, fields are required/empty, topic does not exist, email failed to  send, etc). Can be a toast, message, etc.  
  <br>
  ● Please use the following technologies/packages: 
  <br>
-   ○ express or some other nodejs based server (can use graphql, sockets, or  REST)
-   ○ nodemailer (​https://nodemailer.com/about/​)
-   ○ mailtrap.io (​https://mailtrap.io/​) (​Instructions below​)  
-   ○ sequelize ORM with sqlite file db  (​https://sequelize.org/master/manual/getting-started.html#installing​,  check option 2 for sqlite file)  
-      ■ We would prefer not to spin up a separate db instance for testing,  but if you are most familiar with another DB and would be most  productive, feel free to use it.   
-      ■ As a last resort, you can build the app with in-memory storage. 
+  &nbsp;&nbsp;○ express or some other nodejs based server (can use graphql, sockets, or  REST)
+  <br>
+  &nbsp;&nbsp;○ nodemailer (​https://nodemailer.com/about/​)
+  <br>
+  &nbsp;&nbsp;○ mailtrap.io (​https://mailtrap.io/​) (​Instructions below​)  
+  <br>
+  &nbsp;&nbsp;○ sequelize ORM with sqlite file db  (​https://sequelize.org/master/manual/getting-started.html#installing​,  check option 2 for sqlite file)  
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;■ We would prefer not to spin up a separate db instance for testing,  but if you are most familiar with another DB and would be most  productive, feel free to use it.   
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;■ As a last resort, you can build the app with in-memory storage. 
 
 
 
