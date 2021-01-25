@@ -65,10 +65,17 @@ The database.sqlite already contains some data.
 ### Project Requirements:
 
  ● It should be made available as a git repository (github, gitlab, bitbucket, etc).
+ <br>
  ● It should have a README that discusses what you did, why you did it, etc.
+ <br>
  ● It should build/run with minimal setup after cloning. 
- ● The frontend should be written in React, preferably with hooks.  ○ The UI should give helpful feedback to the user ​(email already subscribed  to topic, fields are required/empty, topic does not exist, email failed to  send, etc). Can be a toast, message, etc.  
+ <br>
+ ● The frontend should be written in React, preferably with hooks.  
+ <br>
+ ○ The UI should give helpful feedback to the user ​(email already subscribed  to topic, fields are required/empty, topic does not exist, email failed to  send, etc). Can be a toast, message, etc.  
+ <br>
  ● Please use the following technologies/packages: 
+ <br>
    ○ express or some other nodejs based server (can use graphql, sockets, or  REST)
    ○ nodemailer (​https://nodemailer.com/about/​)
    ○ mailtrap.io (​https://mailtrap.io/​) (​Instructions below​)  
