@@ -91,7 +91,7 @@ The database.sqlite already contains some data.
 
 ### What I did here
 
-1. Subscribe page.<br />
+1.Subscribe page.<br />
 &nbsp;&nbsp;- Form validation
 <br />
 &nbsp;&nbsp;- Subscribe email to the topic
